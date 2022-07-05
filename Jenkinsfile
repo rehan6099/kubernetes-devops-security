@@ -1,4 +1,3 @@
-#new-pipline
 pipeline {
   agent any
 
