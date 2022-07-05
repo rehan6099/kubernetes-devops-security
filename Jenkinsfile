@@ -2,6 +2,7 @@ pipeline {
   agent any
 
   stages {
+
     stage('Build Artifact - Maven') {
       steps {
         sh "mvn clean package -DskipTests=true"
@@ -20,16 +21,15 @@ pipeline {
         }
       }
     }
-    
-    stages {
-      stage('Docker Build and Push') {
-        steps {
-          withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
-            sh 'printenv'
-            sh 'docker build -t ashaik65/numeric-app:""$GIT_COMMIT"" .'
-            sh 'docker push ashaik65/numeric-app:""$GIT_COMMIT""'
+
+    stage('Docker Build and Push') {
+      steps {
+        withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+          sh 'printenv'
+          sh 'docker build -t siddharth67/numeric-app:""$GIT_COMMIT"" .'
+          sh 'docker push siddharth67/numeric-app:""$GIT_COMMIT""'
+        }
       }
     }
-   }
   }
 }
