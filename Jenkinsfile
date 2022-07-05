@@ -30,6 +30,7 @@ pipeline {
           sh 'docker push ashaik65/numeric-app:""$GIT_COMMIT""'
         }
       }
+    }
 
       stage('Kubernetes Deployment - DEV') {
       steps {
