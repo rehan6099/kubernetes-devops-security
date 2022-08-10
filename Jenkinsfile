@@ -26,8 +26,8 @@ pipeline {
       steps {
         withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
           sh 'printenv'
-          sh 'docker build -t ashaik65/numeric-app:""$GIT_COMMIT"" .'
-          sh 'docker push ashaik65/numeric-app:""$GIT_COMMIT""'
+          sh 'docker build -t rehaninamdar/numeric-app:""$GIT_COMMIT"" .'
+          sh 'docker push rehaninamdar/numeric-app:""$GIT_COMMIT""'
         }
       }
     }
@@ -35,7 +35,7 @@ pipeline {
     stage('Kubernetes Deployment - DEV') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
-          sh "sed -i 's#replace#ashaik65/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
+          sh "sed -i 's#replace#rehaninamdar/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
           sh "kubectl apply -f k8s_deployment_service.yaml"
         }
       }
