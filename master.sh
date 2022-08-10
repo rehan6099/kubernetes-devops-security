@@ -27,5 +27,5 @@ echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 echo ".........----------------#################..-.-COMPLETED-.-..#################----------------........."
 
-
+#chmod 777 /var/run/docker.sock
 #also install docker and kubectl on jenkins machine
