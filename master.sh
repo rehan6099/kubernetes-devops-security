@@ -5,6 +5,8 @@ bash <(curl -s https://raw.githubusercontent.com/killer-sh/cks-course-environmen
 sudo -i
 bash <(curl -s https://raw.githubusercontent.com/killer-sh/cks-course-environment/master/cluster-setup/latest/install_worker.sh)
 
+#ones master install get the join command from master and pest in slave
+
 #jenkins
 #!/bin/bash
 echo ".........----------------#################..-.-Java and MAVEN-.-..#################----------------........."
